@@ -103,14 +103,42 @@ public class Job {
     @Override
     public String toString() {
         String str;
-        if (getId() == "")
-        str = id + " : " + getId() + "\n" +
-                    name + " : " + getName() + "\n" +
-                    employer + " : " + getEmployer() + "\n" +
-                    location + " : " + getLocation() + "\n" +
-                    positionType + " : " + getPositionType() + "\n" +
-                    coreCompetency + " : " + getCoreCompetency();
+        if (getName() == ""
+                && getEmployer().equals("")
+                && getLocation().equals("")
+                && getPositionType().equals("")
+                && getCoreCompetency().equals("")
+        ) {
+            return "OOPS! This job does not seem to exist.";
+        }
 
+        if (getName() == "") {
+            this.name = "Data not available";
+        }
+        if (getEmployer().equals("")) {
+//            this.getEmployer() = new Employer("Data not available");
+
+//            this.employer = new Employer("Data not available");
+
+            setEmployer(new Employer("Data not available"));
+        }
+        if (getLocation().equals("")) {
+            this.location = new Location("Data not available");
+        }
+        if (getPositionType().equals("")) {
+            this.positionType = new PositionType("Data not available");
+        }
+        if (getCoreCompetency().equals("")) {
+            this.coreCompetency = new CoreCompetency("Data not available");
+        }
+
+
+        str = "ID : " + getId() +
+              "\nName : " + getName() +
+              "\nEmployer : " + getEmployer() +
+              "\nLocation : " + getLocation() +
+              "\nPosition Type : " + getPositionType() +
+              "\nCore Competency : " + getCoreCompetency();
 
         return  str ;
     }

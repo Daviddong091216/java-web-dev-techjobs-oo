@@ -48,6 +48,11 @@ public class JobTest {
         assertEquals(false,test_job.equals(test_job3));
     }
 
+    @Test
+    public void testToStringEmpty() {
+
+    }
+
 
 
 
