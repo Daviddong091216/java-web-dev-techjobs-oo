@@ -16,6 +16,9 @@ public class JobTest {
     Job test_job5;
     Job test_job6;
     Job test_job7;
+    Job test_job8;
+    Job test_job9;
+    Job test_job10;
 
     @Before
     public void createJobObject() {
@@ -34,23 +37,46 @@ public class JobTest {
                 new CoreCompetency("Persistence")
         );
         test_job5 = new Job("",
-                new Employer("ACME"),
-                new Location("Desert"),
-                new PositionType("Quality control"),
-                new CoreCompetency("Persistence")
-        );
-        test_job6 = new Job("Product tester",
-                new Employer(""),
-                new Location("Desert"),
-                new PositionType("Quality control"),
-                new CoreCompetency("Persistence")
-        );
-        test_job7 = new Job("",
                 new Employer(""),
                 new Location(""),
                 new PositionType(""),
                 new CoreCompetency("")
         );
+
+        test_job6 = new Job("",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence")
+        );
+        test_job7 = new Job("Product tester",
+                new Employer(""),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence")
+        );
+
+        test_job8 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location(""),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence")
+        );
+
+        test_job9 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType(""),
+                new CoreCompetency("Persistence")
+        );
+
+        test_job10 = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("")
+        );
+
     }
 
 
@@ -69,24 +95,43 @@ public class JobTest {
         assertEquals(false,test_job3.equals(test_job4));
     }
 
-    /*@Test
+    @Test
     public void testToStringEmpty() {
-        assertEquals("",test_job1.toString());
-    }*/
+        assertEquals(false,test_job5.toString().startsWith("\n"));
+    }
+
+    @Test
+    public void testToStringEmpty1() {
+        assertEquals(false,test_job5.toString().endsWith("\n"));
+    }
 
     @Test
     public void testToString1() {
-        assertEquals("Data not available",test_job5.toString());
+        assertEquals(true,test_job6.toString().contains("Data not available"));
     }
 
     @Test
     public void testToString2() {
-        assertEquals("Data not available",test_job6.toString());
+        assertEquals(true,test_job7.toString().contains("Data not available"));
+    }
+    @Test
+    public void testToString3() {
+        assertEquals(true,test_job8.toString().contains("Data not available"));
     }
 
     @Test
-    public void testToString3() {
-        assertEquals("OOPS! This job does not seem to exist.",test_job7.toString());
+    public void testToString4() {
+        assertEquals(true,test_job9.toString().contains("Data not available"));
+    }
+
+    @Test
+    public void testToString5() {
+        assertEquals(true,test_job10.toString().contains("Data not available"));
+    }
+
+    @Test
+    public void testToString6() {
+        assertEquals("OOPS! This job does not seem to exist.",test_job5.toString());
     }
 
 

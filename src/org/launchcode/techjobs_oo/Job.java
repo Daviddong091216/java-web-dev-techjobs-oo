@@ -131,7 +131,7 @@ public class Job {
         }
 
 
-        str = "ID : " + getId() +
+        str = "\nID : " + getId() +
               "\nName : " + getName() +
               "\nEmployer : " + getEmployer() +
               "\nLocation : " + getLocation() +
